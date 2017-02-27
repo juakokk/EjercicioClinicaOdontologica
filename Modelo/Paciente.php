@@ -211,7 +211,7 @@ class Paciente extends db_abstract_class
             return NULL;
         }
     }
-
+//hola
     protected static function buscar($query)
     {
         $arrPacientes = array();
