@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Odontologos@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="odontologos">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="my_sena"/>
+    <schema id="6" parent="1" name="odontologia"/>
+    <schema id="7" parent="1" name="performance_schema"/>
+    <schema id="8" parent="1" name="phpmyadmin"/>
+    <schema id="9" parent="1" name="test"/>
+    <table id="10" parent="2" name="cita"/>
+    <table id="11" parent="2" name="especialista"/>
+    <table id="12" parent="2" name="paciente"/>
+    <column id="13" parent="10" name="idCita">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="14" parent="10" name="Fecha">
+      <Position>2</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="15" parent="10" name="Codigo">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="16" parent="10" name="Estado">
+      <Position>4</Position>
+      <DataType>enum(&apos;Cancelado&apos;, &apos;Solicitada&apos;, &apos;Activa&apos;, &apos;Suspendida&apos;, &apos;Finalizado&apos;)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="17" parent="10" name="Valor">
+      <Position>5</Position>
+      <DataType>float|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="18" parent="10" name="NConsultorio">
+      <Position>6</Position>
+      <DataType>smallint(6)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="19" parent="10" name="Observaciones">
+      <Position>7</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="20" parent="10" name="Motivo">
+      <Position>8</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="10" name="Paciente_idPaciente">
+      <Position>9</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="22" parent="10" name="Especialista_idEspecialista">
+      <Position>10</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="23" parent="10" name="fk_Cita_Especialista1_idx">
+      <ColNames>Especialista_idEspecialista</ColNames>
+    </index>
+    <index id="24" parent="10" name="fk_Cita_Paciente_idx">
+      <ColNames>Paciente_idPaciente</ColNames>
+    </index>
+    <key id="25" parent="10" name="PRIMARY">
+      <ColNames>idCita</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="26" parent="10" name="fk_Cita_Paciente">
+      <ColNames>Paciente_idPaciente</ColNames>
+      <RefSchemaName>odontologos</RefSchemaName>
+      <RefTableName>paciente</RefTableName>
+      <RefColNames>idPaciente</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <foreign-key id="27" parent="10" name="fk_Cita_Especialista1">
+      <ColNames>Especialista_idEspecialista</ColNames>
+      <RefSchemaName>odontologos</RefSchemaName>
+      <RefTableName>especialista</RefTableName>
+      <RefColNames>idEspecialista</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <column id="28" parent="11" name="idEspecialista">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="11" name="Tipo">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="11" name="Nombre">
+      <Position>3</Position>
+      <DataType>varchar(60)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="11" name="Apellido">
+      <Position>4</Position>
+      <DataType>varchar(60)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="11" name="Documento">
+      <Position>5</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="11" name="TipoDocumento">
+      <Position>6</Position>
+      <DataType>enum(&apos;C.C&apos;, &apos;C.E&apos;, &apos;C.I&apos;, &apos;T.I&apos;, &apos;RegistroCivil&apos;, &apos;RUT&apos;, &apos;Pasaporte&apos;)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="11" name="Email">
+      <Position>7</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="11" name="Direccion">
+      <Position>8</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="36" parent="11" name="Genero">
+      <Position>9</Position>
+      <DataType>enum(&apos;Masculino&apos;, &apos;Femenino&apos;, &apos;Indefinido&apos;)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="11" name="Telefono">
+      <Position>10</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="38" parent="11" name="PRIMARY">
+      <ColNames>idEspecialista</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="39" parent="12" name="idPaciente">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="40" parent="12" name="Nombre">
+      <Position>2</Position>
+      <DataType>varchar(60)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="41" parent="12" name="Apellidos">
+      <Position>3</Position>
+      <DataType>varchar(60)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="12" name="Documento">
+      <Position>4</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="43" parent="12" name="TipoDocumento">
+      <Position>5</Position>
+      <DataType>enum(&apos;C.C&apos;, &apos;C.E&apos;, &apos;C.I&apos;, &apos;T.I&apos;, &apos;RegistroCivil&apos;, &apos;RUT&apos;, &apos;Pasaporte&apos;)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="44" parent="12" name="Direccion">
+      <Position>6</Position>
+      <DataType>varchar(60)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="45" parent="12" name="Email">
+      <Position>7</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="46" parent="12" name="Genero">
+      <Position>8</Position>
+      <DataType>enum(&apos;Masculino&apos;, &apos;Femenino&apos;, &apos;Indefinido&apos;)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="47" parent="12" name="Estado">
+      <Position>9</Position>
+      <DataType>enum(&apos;Activo&apos;, &apos;Inactivo&apos;)|0</DataType>
+    </column>
+    <key id="48" parent="12" name="PRIMARY">
+      <ColNames>idPaciente</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
