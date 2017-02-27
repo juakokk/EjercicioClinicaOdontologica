@@ -20,10 +20,10 @@ class EspecialistaController{
         }else if ($action == "adminTableEspecialista"){
             EspecialistaController::adminTableEspecialista();
         }
-        else if ($action == "InactivarPaciente"){
-            pacienteController::CambiarEstado("Inactivo");
-        }else if ($action == "ActivarPaciente"){
-            pacienteController::CambiarEstado("Activo");
+        else if ($action == "InactivarEspecialista"){
+           EspecialistaController::CambiarEstado("Inactivo");
+        }else if ($action == "ActivarEspecialista"){
+            EspecialistaController::CambiarEstado("Activo");
         }
         /*
         else if ($action == "buscarID"){
@@ -99,7 +99,7 @@ class EspecialistaController{
             if($ObjEspecialista->getEstado() == "Activo"){
                 $icons .= "<a data-toggle='tooltip' title='Inactivar Usuario' data-placement='top' class='btn btn-social-icon btn-danger newTooltip' href='../../Controlador/especialistaController.php?action=InactivarEspecialista&IdEspecialista=".$ObjEspecialista->getidEspecialista()."'><i class='fa fa-times'></i></a>";
             }else{
-                $icons .= "<a data-toggle='tooltip' title='Activar Usuario' data-placement='top' class='btn btn-social-icon btn-success newTooltip' href='../../Controlador/especialistaController.php?action=ActivarPaciente&IdEspecialista=".$ObjEspecialista->getidEspecialista()."'><i class='fa fa-check'></i></a>";
+                $icons .= "<a data-toggle='tooltip' title='Activar Usuario' data-placement='top' class='btn btn-social-icon btn-success newTooltip' href='../../Controlador/especialistaController.php?action=ActivarEspecialista&IdEspecialista=".$ObjEspecialista->getidEspecialista()."'><i class='fa fa-check'></i></a>";
             }
             $icons .= "<a data-toggle='tooltip' title='Actualizar Usuario' data-placement='top' class='btn btn-social-icon btn-primary newTooltip' href='actualizarEspecialista.php?IdEspecialista=".$ObjEspecialista->getidEspecialista()."'><i class='fa fa-pencil'></i></a>";
             $icons .= "<a data-toggle='tooltip' title='Ver Usuario' data-placement='top' class='btn btn-social-icon btn-warning newTooltip' href='../../Controlador/especialistaController.php?action=InactivarPaciente&Especialista=".$ObjEspecialista->getidEspecialista()."'><i class='fa fa-eye'></i></a>";
@@ -130,7 +130,7 @@ class EspecialistaController{
             $arrayEspecialista['Genero'] = $_POST['Genero'];
             $arrayEspecialista['Telefono'] = $_POST['Telefono'];
             $arrayEspecialista['Estado'] = $Estado;
-            $arrayEspecialista['idEspecilista'] = $_SESSION["IdEspecialista"];
+            $arrayEspecialista['idEspecialista'] = $_SESSION["IdEspecialista"];
             $Especialista = new Especialista ($arrayEspecialista);
             $Especialista->editar();
             //var_dump($Especialista);
